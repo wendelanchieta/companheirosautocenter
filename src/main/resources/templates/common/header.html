@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head" th:remove="tag">
+    <title>Sistema de controle do companheiros auto center</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+     <link href="../static/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+          
+     <link href="../static/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap-theme.min.css}"
+          rel="stylesheet" media="screen" />  
+                    
+     <link th:href="@{../css/sticky-footer-navbar.css}" rel="stylesheet" media="screen" />
+     
+     <link th:href="@{../css/app.css}" rel="stylesheet" media="screen" />    
+      
+</head>
+  <body>
+  
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="top-navigation" sec:authorize="isAnonymous()">
+ 		Cor do logo: #2E315A
+    </nav> -->
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:fragment="top-navigation">
+      <a class="navbar-brand" href="#"><img class="mr-3" src="../images/logo_grande.jpg" alt="" width="78" height="78"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio <span class="sr-only">(atual)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastrar</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Item</a>
+              <a class="dropdown-item" href="#">Outro item</a>
+              <a class="dropdown-item" href="#">Algum outro item</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buscar</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Item</a>
+              <a class="dropdown-item" href="#">Outro item</a>
+              <a class="dropdown-item" href="#">Algum outro item</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" th:action="@{/login}" action="/login" method="POST">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
+        </form>
+      </div>
+    </nav>
+	
+	
+    
+  </body>
+</html>

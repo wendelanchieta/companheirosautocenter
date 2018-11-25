@@ -1,7 +1,65 @@
-<html>
+<!-- <html>
 	<head><title>Sistema de controle do Companheiros Auto Center</title></head>
 	<body>
 		<h1>Companheiros Auto Center</h1>
 		<p>Bem vindo ao <span th:text="${appName}">Nosso sistema</span></p>
+	</body>
+</html> -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<head th:replace="common/header :: head"></head>
+		
+		<!-- Add additional custom css here - START -->
+		
+		
+		
+		<!-- Add additional custom css here - END -->
+	</head>
+	<body>
+		<div th:replace="common/header :: top-navigation">...</div>
+	
+		<!-- Add page specific code/html START -->
+		
+		<div class="container">
+	
+			<div class="page-header">
+				<h1>Companheiros Auto Center</h1>
+				<p>Bem vindo ao <span th:text="${appName}">Nosso sistema</span></p>
+			</div>
+			<div class="d-flex align-items p-3 my-3 bg-purple rounded shadow-sm">
+				<div class="d-flex align-items-left p-3 my-3 bg-purple rounded shadow-sm">
+					<ul> 
+						<li>Revis&atilde;o Geral</li>
+						<li>Troca de &Oacute;leo</li>
+						<li>Freios</li>
+						<li>Suspens&atilde;o</li>
+						<li>El&eacute;trica</li>
+						<li>Higieniza&ccedil;&atilde;o do Ar Condicionado</li>
+						<li>Programa&ccedil;&atilde;o</li>
+						<li>Diagn&oacute;stico com aparelho</li>
+						<li>Or&ccedil;amento WhatsApp sem compromisso</li>
+						<li>(61) 99502-8636</li>
+					</ul>
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;Estrutura moderna, m&atilde;o de obra qualificada, tecnologia digital, pe&ccedil;as genu&iacute;nas, pre&ccedil;os acess&iacute;veis e 
+					um toque de &nbsp;&nbsp;&nbsp;companheirismo que muda todo atendimento. N&atilde;o deixe de conhecer nossos servi&ccedil;os.<br/>
+				</div>
+			</div>
+	        
+	        <div class="lh-100">
+	          <small>
+	          	COMPANHEIROS AUTO CENTER - CNPJ: 30.193618/0001-86<br/>
+				QND 13, LOTE 04 - COMERCIAL NORTE, TAGUATINGA NORTE - CEP: 72120-130<br/>
+				companheirosautocenter@gmail.com<br/>
+	          </small>
+	        </div>
+		</div>
+		
+		<!-- Add page specific code/html END -->
+	
+		<div th:replace="common/footer :: footer">...</div>
+	    
 	</body>
 </html>
