@@ -13,6 +13,7 @@ import com.companheirosautocenter.appautocenter.domain.Cliente;
 import com.companheirosautocenter.appautocenter.domain.ItemPedido;
 import com.companheirosautocenter.appautocenter.domain.PagamentoComBoleto;
 import com.companheirosautocenter.appautocenter.domain.Pedido;
+import com.companheirosautocenter.appautocenter.domain.Pessoa;
 import com.companheirosautocenter.appautocenter.domain.enums.EstadoPagamento;
 import com.companheirosautocenter.appautocenter.repositories.ItemPedidoRepository;
 import com.companheirosautocenter.appautocenter.repositories.PagamentoRepository;
@@ -37,7 +38,7 @@ public class PedidoService {
 	private ItemPedidoRepository itemPedidoRepository;
 
 	@Autowired
-	private ClienteService clienteService;
+	private PessoaFisicaService pessoaService;
 
 	@Autowired
 	private ProdutoService produtoService;
@@ -53,7 +54,7 @@ public class PedidoService {
 
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);
-		obj.setCliente(clienteService.find(obj.getCliente().getId()));
+		obj.setPessoa(pessoaService.find(obj.getPessoa().getId()));
 		obj.setInstante(new Date());
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
@@ -80,7 +81,7 @@ public class PedidoService {
 			throw new AuthorizationException("Acesso negado");
 		}*/
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		Cliente cliente = clienteService.find(user.getId());
-		return repo.findByCliente(cliente, pageRequest);
+		Pessoa pessoa = pessoaService.find(user.getId());
+		return repo.findByPessoa(pessoa, pageRequest);
 	}
 }

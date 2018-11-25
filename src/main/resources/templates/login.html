@@ -19,7 +19,7 @@
 		  <div th:if="${param.logout}" class="form-signin alert alert-info">You have been logged out</div>
 		  <div th:if="${param.error}" class="form-signin alert alert-warning">There was an error, please try again</div>
 	
-		 <form class="form-signin" name="loginForm" th:action="@{/login}" action="/login" method="POST">	
+		 <form class="form-signin" name="loginForm" th:action="@{/login}" action="/login" method="GET">	
 	        <h2 class="form-signin-heading">Please sign in</h2>
 	        <label for="username" class="sr-only">Email address</label>
 	        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" />

@@ -5,8 +5,8 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.SimpleMailMessage;
 
-import com.companheirosautocenter.appautocenter.domain.Cliente;
 import com.companheirosautocenter.appautocenter.domain.Pedido;
+import com.companheirosautocenter.appautocenter.domain.Pessoa;
 
 public interface EmailService {
 
@@ -18,5 +18,5 @@ public interface EmailService {
 	
 	void sendHtmlEmail(MimeMessage msg);
 
-	void sendNewPasswordEmail(Cliente cliente, String newPass);
+	void sendNewPasswordEmail(Pessoa pessoa, String newPass);
 }

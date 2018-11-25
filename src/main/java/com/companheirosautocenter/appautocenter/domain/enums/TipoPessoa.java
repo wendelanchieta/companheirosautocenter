@@ -1,16 +1,14 @@
 package com.companheirosautocenter.appautocenter.domain.enums;
 
-public enum Perfil {
+public enum TipoPessoa {
 	
-	ADMIN(1, "ROLE_ADMIN"), 
-	CLIENTE(2, "ROLE_CLIENTE"),
-	EMPREGADO(3, "ROLE_EMPREGADO"),
-	SOCIO(4, "ROLE_EMPREGADO");
+	FISICA(1, "Física"), 
+	JURIDICA(2, "Jurídica");
 
 	private int cod;
 	private String descricao;
 	
-	private Perfil(int cod, String descricao) {
+	private TipoPessoa(int cod, String descricao) {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
@@ -23,13 +21,13 @@ public enum Perfil {
 		return descricao;
 	}
 	
-	public static Perfil toEnum(Integer cod) {
+	public static TipoPessoa toEnum(Integer cod) {
 		
 		if(cod == null) {
 			return null;
 		}
 		
-		for(Perfil x:Perfil.values()) {
+		for(TipoPessoa x:TipoPessoa.values()) {
 			if(cod.equals(x.getCod())) {
 				return x;
 			}

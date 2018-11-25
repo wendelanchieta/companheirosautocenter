@@ -15,6 +15,7 @@ import org.thymeleaf.context.Context;
 
 import com.companheirosautocenter.appautocenter.domain.Cliente;
 import com.companheirosautocenter.appautocenter.domain.Pedido;
+import com.companheirosautocenter.appautocenter.domain.Pessoa;
 
 public abstract class AbstractEmailService implements EmailService {
 
@@ -35,7 +36,7 @@ public abstract class AbstractEmailService implements EmailService {
 
 	protected SimpleMailMessage prepareSimpleMailMessageFromPedido(Pedido pedido) {
 		SimpleMailMessage sm = new SimpleMailMessage();
-		sm.setTo(pedido.getCliente().getEmail());
+		sm.setTo(pedido.getPessoa().getEmail());
 		sm.setFrom(sender);
 		sm.setSubject("Pedido confirmado! Código: " + pedido.getId());
 		sm.setSentDate(new Date(System.currentTimeMillis()));
@@ -63,7 +64,7 @@ public abstract class AbstractEmailService implements EmailService {
 	protected MimeMessage prepareMimeMessageFromPedido(Pedido pedido) throws MessagingException {
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
-		mmh.setTo(pedido.getCliente().getEmail());
+		mmh.setTo(pedido.getPessoa().getEmail());
 		mmh.setFrom(sender);
 		mmh.setSubject("Pedido confirmado! Código: " + pedido.getId());
 		mmh.setSentDate(new Date(System.currentTimeMillis()));
@@ -72,14 +73,14 @@ public abstract class AbstractEmailService implements EmailService {
 	}
 
 	@Override
-	public void sendNewPasswordEmail(Cliente cliente, String newPass) {
-		SimpleMailMessage sm = prepareNewPasswordEmail(cliente, newPass);
+	public void sendNewPasswordEmail(Pessoa pessoa, String newPass) {
+		SimpleMailMessage sm = prepareNewPasswordEmail(pessoa, newPass);
 		sendEmail(sm);
 	}
 
-	protected SimpleMailMessage prepareNewPasswordEmail(Cliente cliente, String newPass) {
+	protected SimpleMailMessage prepareNewPasswordEmail(Pessoa pessoa, String newPass) {
 		SimpleMailMessage sm = new SimpleMailMessage();
-		sm.setTo(cliente.getEmail());
+		sm.setTo(pessoa.getEmail());
 		sm.setFrom(sender);
 		sm.setSubject("Solicitação de nova senha");
 		sm.setSentDate(new Date(System.currentTimeMillis()));

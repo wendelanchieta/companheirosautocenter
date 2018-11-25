@@ -7,7 +7,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.companheirosautocenter.appautocenter.domain.Cliente;
+import com.companheirosautocenter.appautocenter.domain.Pessoa;
 import com.companheirosautocenter.appautocenter.repositories.ClienteRepository;
+import com.companheirosautocenter.appautocenter.repositories.PessoaRepository;
 import com.companheirosautocenter.appautocenter.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -17,25 +19,37 @@ public class AuthService {
 	private ClienteRepository clienteRepository;
 	
 	@Autowired
+	private PessoaRepository pessoaRepository;
+	
+	@Autowired
 	private BCryptPasswordEncoder pe;
 	
 	@Autowired
 	private EmailService emailService;
 	
 	private Random rand = new Random();
+	
+	public void findPessoaByrLogin(String login) {
+		Pessoa pessoa = pessoaRepository.findByLogin(login);
+		if(pessoa == null) {
+			throw new ObjectNotFoundException("Login não encontrado");
+		}
+	}
 
-	public void sendNewPassword(String email) {
+	public void sendNewPassword(String login) {
 		
-		Cliente cliente = clienteRepository.findByEmail(email);
-		if(cliente == null) {
+		Pessoa pessoa = pessoaRepository.findByLogin(login);
+		if(pessoa == null) {
+			throw new ObjectNotFoundException("Login não encontrado");
+		} else if(pessoa.getEmail() == null) {
 			throw new ObjectNotFoundException("Email não encontrado");
 		}
 		
 		String newPass = newPassword();
-		cliente.setSenha(pe.encode(newPass));
-		clienteRepository.save(cliente);
+		pessoa.setSenha(pe.encode(newPass));
+		pessoaRepository.save(pessoa);
 		
-		emailService.sendNewPasswordEmail(cliente, newPass);
+		emailService.sendNewPasswordEmail(pessoa, newPass);
 	}
 
 	private String newPassword() {
