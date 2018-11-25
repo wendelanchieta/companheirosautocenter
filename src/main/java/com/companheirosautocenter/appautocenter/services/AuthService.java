@@ -6,17 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.companheirosautocenter.appautocenter.domain.Cliente;
 import com.companheirosautocenter.appautocenter.domain.Pessoa;
-import com.companheirosautocenter.appautocenter.repositories.ClienteRepository;
 import com.companheirosautocenter.appautocenter.repositories.PessoaRepository;
 import com.companheirosautocenter.appautocenter.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class AuthService {
-	
-	@Autowired
-	private ClienteRepository clienteRepository;
 	
 	@Autowired
 	private PessoaRepository pessoaRepository;
@@ -29,11 +24,12 @@ public class AuthService {
 	
 	private Random rand = new Random();
 	
-	public void findPessoaByrLogin(String login) {
+	public Pessoa findPessoaByLogin(String login) {
 		Pessoa pessoa = pessoaRepository.findByLogin(login);
 		if(pessoa == null) {
 			throw new ObjectNotFoundException("Login não encontrado");
 		}
+		return pessoa;
 	}
 
 	public void sendNewPassword(String login) {

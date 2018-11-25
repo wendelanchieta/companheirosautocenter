@@ -1,39 +1,32 @@
 package com.companheirosautocenter.appautocenter.resources;
 
-import java.net.URI;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.companheirosautocenter.appautocenter.domain.Pessoa;
-import com.companheirosautocenter.appautocenter.dto.PessoaDTO;
-import com.companheirosautocenter.appautocenter.services.PessoaFisicaService;
+import com.companheirosautocenter.appautocenter.services.AuthService;
 
 @RestController
 @RequestMapping(value = "/login")
 public class LoginResource {
 	
 	@Autowired
-	private PessoaFisicaService service;
+	private AuthService service;
 	
 	@RequestMapping(value = "/newpage", method = RequestMethod.GET)
     public String newPage() {
-        System.out.println("Showing The Redirected Page");
-        return "home";
+        return "newpage";
     }
 
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> login(@Valid @RequestBody PessoaDTO dto) {
-		Pessoa obj = service.fromDTO(dto);
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	public ResponseEntity<Void> login(@RequestParam("username") String username, @RequestParam("password") String password) {
+		System.out.println("Entrei no Login");
+		Pessoa pessoa = service.findPessoaByLogin(username);
+		System.out.println("Usuario: " + pessoa.getLogin() + "\nEmail: " + pessoa.getEmail());
+		return ResponseEntity.noContent().build();
 	}
 }
