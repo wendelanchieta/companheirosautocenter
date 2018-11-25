@@ -76,9 +76,9 @@ public class PedidoService {
 
 	public Page<Pedido> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		UserSS user = UserService.authenticated();
-		if (user == null) {
+		/*if (user == null) {
 			throw new AuthorizationException("Acesso negado");
-		}
+		}*/
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		Cliente cliente = clienteService.find(user.getId());
 		return repo.findByCliente(cliente, pageRequest);

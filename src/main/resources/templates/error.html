@@ -1,0 +1,18 @@
+<html lang="pt-br">
+	<head>
+		<title>Ocorreu um erro</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	</head>
+	<body>
+	    <div class="container">
+	      <h1>Ocorreu um erro!</h1>    
+	      <div class="alert alert-danger" role="alert">
+	            <b>
+	            [<span th:text="${status}">status</span>]
+	            <span th:text="${error}">error</span>
+	            </b>
+	            <p th:text="${message}">mensagem</p>
+	       </div>     
+	    </div>
+	</body>
+</html>
