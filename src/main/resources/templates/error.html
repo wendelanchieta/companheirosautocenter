@@ -5,14 +5,21 @@
 	</head>
 	<body>
 	    <div class="container">
-	      <h1>Ocorreu um erro!</h1>    
+	      <h1>&#10006;Ocorreu um erro!&#10006;</h1>    
 	      <div class="alert alert-danger" role="alert">
 	            <b>
 	            [<span th:text="${status}">status</span>]
 	            <span th:text="${error}">error</span>
 	            </b>
 	            <p th:text="${message}">mensagem</p>
-	       </div>     
+	       </div> 
+	       	<div>
+				<img src="../images/erro-403.jpg" class="rounded mx-auto d-block" alt="Erro"> 
+			</div>
+			<div>
+				<br/>
+				<a class="btn btn-lg btn-primary" th:href="@{/}" role="button">Inicio &#8617;</a>
+			</div>
 	    </div>
 	</body>
 </html>
