@@ -115,9 +115,9 @@ public class DBService {
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,p12));
 
-		Estado est1 = new Estado(null, "Minas Gerais");
-		Estado est2 = new Estado(null, "São Paulo");
-		Estado est3 = new Estado(null, "Distrito Federal");
+		Estado est1 = new Estado(null,null, "Minas Gerais");
+		Estado est2 = new Estado(null,null, "São Paulo");
+		Estado est3 = new Estado(null,null, "Distrito Federal");
 
 		Cidade c1 = new Cidade(null, "Uberlandia", est1);
 		Cidade c2 = new Cidade(null, "São Paulo", est2);

@@ -15,6 +15,13 @@
 		<div th:replace="common/header :: top-navigation">...</div>
 	
 		<!-- Add page specific code/html START -->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="js/bootstrap-combobox.js"></script>
+		<script>
+			$(document).ready(function(){
+			          $('.combobox').combobox()
+			        });
+		</script>
 		
 		<div class="container">
 	
@@ -30,16 +37,26 @@
 					  <label for="telefone">Telefone</label>
 					  <input type="text" class="form-control" id="telefone" placeholder="Telefone">
 					</div>
+					<div class="form-group">
+					  <label for="endereco">Endere&ccedil;o</label>
+					  <input type="text" class="form-control" id="endereco" placeholder="Endere&ccedil;o">
+					</div>
 					<div class="row">
-						<div class="col">
-						  	<label for="endereco">Endere&ccedil;o</label>
-					  		<input type="text" class="form-control" id="endereco" placeholder="Endere&ccedil;o">
-						</div>
-						<div class="col">
+						<div class="form-group col-md-5">
 						  	<label for="cidade">Cidade</label>
 					  		<input type="text" class="form-control" id="cidade" placeholder="Cidade">
 						</div>
-					</div><br/>
+						<div class="form-group col-md-5">
+						  	<label for="bairro">Bairro</label>
+					  		<input type="text" class="form-control" id="bairro" placeholder="Bairro">
+						</div>
+						<div class="form-group col-md-2">
+						  	<label for="uf">UF</label>
+					  		<select id="uf"  class="combobox form-control">
+							    <option th:each="post : ${posts}" th:value="${post.id}" th:text="${post.uf}"></option>
+							</select>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col">
 						  	<label for="cpfcnpj">CPF/CNPJ</label>

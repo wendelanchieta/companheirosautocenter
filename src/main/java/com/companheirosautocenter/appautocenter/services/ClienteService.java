@@ -18,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.companheirosautocenter.appautocenter.domain.Cidade;
 import com.companheirosautocenter.appautocenter.domain.Cliente;
-import com.companheirosautocenter.appautocenter.domain.Endereco;
 import com.companheirosautocenter.appautocenter.domain.enums.TipoCliente;
 import com.companheirosautocenter.appautocenter.dto.ClienteDTO;
 import com.companheirosautocenter.appautocenter.dto.ClienteNewDTO;

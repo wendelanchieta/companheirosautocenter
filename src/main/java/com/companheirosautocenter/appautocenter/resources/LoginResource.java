@@ -1,21 +1,22 @@
 package com.companheirosautocenter.appautocenter.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.companheirosautocenter.appautocenter.domain.Pessoa;
 import com.companheirosautocenter.appautocenter.services.AuthService;
 
 /**
- * @see {@link <a href="https://www.thymeleaf.org/doc/articles/springsecurity.html">https://www.thymeleaf.org/doc/articles/springsecurity.html</a>}
+ * @see {@link <a href="https://www.thymeleaf.org/doc/articles/springsecurity.html">https://www.thymeleaf.org/doc/articles/springsecurity.html</a>}<br/>
+ * 		{@link <a href="https://springframework.guru/spring-boot-web-application-part-5-spring-security/">https://springframework.guru/spring-boot-web-application-part-5-spring-security/</a>}
  * 
  * @author wendel.anchieta
  *
  */
-@RestController
+@Controller
 @RequestMapping(value = "/login")
 public class LoginResource {
 	
