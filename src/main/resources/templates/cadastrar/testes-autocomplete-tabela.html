@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<title>Spring Boot - DELETE-UPDATE AJAX Example</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<script src="../../js/jqueryAjaxGet.js"></script>
+		
+	</head>
+ 
+	<body>
+		<div class="container">
+			<h2>Filter Table</h2>
+			<div class="row col-md-7 ">
+				<div style="margin-bottom:20px; padding:10px; background-color:#336699; color:white;">
+			  	<p>Type some text to search the table for <strong>Id</strong>, <strong>Name</strong>:</p>  
+			  	<input class="form-control" id="inputFilter" type="text" placeholder="Search.." />
+			  	</div>
+				<table id="customerTable" class="table table-bordered table-hover table-responsive">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</body>
+	</html>

@@ -2,13 +2,14 @@ package com.companheirosautocenter.appautocenter.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.springframework.data.annotation.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,6 +27,9 @@ public class Cidade implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="estado_id")
 	private Estado estado;
+	
+	@Transient
+	private String uf;
 
 	public Cidade() {
 
@@ -60,6 +64,10 @@ public class Cidade implements Serializable {
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+
+	public String getUf() {
+		return estado.getUf();
 	}
 
 	@Override
