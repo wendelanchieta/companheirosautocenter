@@ -26,7 +26,28 @@
 			  min-height: 75rem;
 			  padding-top: 6.5rem;
 			}
+			
+			.input-group-btn .btn-group {
+			    display: flex !important;
+			}
+			.btn-group .btn {
+			    border-radius: 0;
+			    margin-left: -1px;
+			}
+			.btn-group .btn:last-child {
+			    border-top-right-radius: 4px;
+			    border-bottom-right-radius: 4px;
+			}
+			.btn-group .form-horizontal .btn[type="submit"] {
+			  border-top-left-radius: 4px;
+			  border-bottom-left-radius: 4px;
+			}
 		</style>
+		
+		<script src="../../js/sweetalert.min.js"></script>
+		<script type="text/javascript">
+			import swal from 'sweetalert';
+		</script>
 		
 </head>
   <body>
@@ -51,7 +72,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" th:href="@{/cadastrarpessoa}">Cliente</a>
               <a class="dropdown-item" th:href="@{/cadastrarveiculo}">Ve&iacute;culo</a>
-              <a class="dropdown-item" href="#">Ordem de Servi&ccedil;o</a>
+              <a class="dropdown-item" th:href="@{/cadastraros}">Ordem de Servi&ccedil;o</a>
                <a class="dropdown-item" href="#">Empregado</a>
               <a class="dropdown-item" href="#">Usu&aacute;rio</a>
             </div>

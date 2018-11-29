@@ -56,6 +56,16 @@ public class DefaultResource {
     	return "cadastrar/cadastrarpessoa";
     }
     
+    @RequestMapping("/cadastrarveiculo")
+    public String cadastrarveiculo() {
+    	return "cadastrar/cadastrarveiculo";
+    }
+    
+    @RequestMapping("/cadastraros")
+    public String cadastraros() {
+    	return "cadastrar/cadastraros";
+    }
+    
     /*@RequestMapping(value = "/getCidades", method = RequestMethod.GET)
 	public @ResponseBody
 	List<Cidade> getTags(@RequestParam String nomeCidade, HttpServletResponse response) {
@@ -75,10 +85,6 @@ public class DefaultResource {
 
 	}*/
     
-    @RequestMapping("/cadastrarveiculo")
-    public String cadastrarveiculo() {
-    	return "cadastrar/cadastrarveiculo";
-    }
     
     @GetMapping("/tes")
 	public ModelAndView findAll() {
