@@ -7,101 +7,6 @@
 		
 		<!-- Add additional custom css here - START -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<style>
-			/* latin-ext */
-			@font-face {
-			  font-family: 'Raleway';
-			  font-style: normal;
-			  font-weight: 400;
-			  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');
-			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-			}
-			/* latin */
-			@font-face {
-			  font-family: 'Raleway';
-			  font-style: normal;
-			  font-weight: 400;
-			  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
-			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-			}
-			* {
-			  box-sizing: border-box;
-			}
-			
-			/* body {
-			  background-color: #f1f1f1;
-			} */
-			
-			#regForm {
-			  background-color: #ffffff;
-			  margin: 100px auto;
-			  font-family: Raleway;
-			  /*padding: 40px;*/
-			  width: 70%;
-			  min-width: 300px;
-			}
-			
-			h1 {
-			  text-align: center;  
-			}
-			
-			input {
-			  padding: 10px;
-			  width: 100%;
-			  font-size: 17px;
-			  font-family: Raleway;
-			  border: 1px solid #aaaaaa;
-			}
-			
-			/* Mark input boxes that gets an error on validation: */
-			input.invalid {
-			  background-color: #ffdddd;
-			}
-			
-			/* Hide all steps by default: */
-			.tab {
-			  display: none;
-			}
-			
-			button {
-			  background-color: #4CAF50;
-			  color: #ffffff;
-			  border: none;
-			  padding: 10px 20px;
-			  font-size: 17px;
-			  font-family: Raleway;
-			  cursor: pointer;
-			}
-			
-			button:hover {
-			  opacity: 0.8;
-			}
-			
-			#prevBtn {
-			  background-color: #bbbbbb;
-			}
-			
-			/* Make circles that indicate the steps of the form: */
-			.step {
-			  height: 15px;
-			  width: 15px;
-			  margin: 0 2px;
-			  background-color: #bbbbbb;
-			  border: none;  
-			  border-radius: 50%;
-			  display: inline-block;
-			  opacity: 0.5;
-			}
-			
-			.step.active {
-			  opacity: 1;
-			}
-			
-			/* Mark the steps that are finished and valid: */
-			.step.finish {
-			  background-color: #4CAF50;
-			}
-		</style>
 		<!-- Add additional custom css here - END -->
 	</head>
 	<body>
@@ -109,13 +14,72 @@
 	
 		<!-- Add page specific code/html START -->
 	
-			<div>
 				<form id="regForm" action="#">
 					  <h3>Cadastro de Ordem de Servi&ccedil;o</h3>
 					  <!-- One "tab" for each step in the form: -->
-					  <div class="tab">Name:
-					    <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-					    <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+					  <div class="tab">
+					  	<br/>
+						<h4 style="background-color: #f1f1f1;">Cliente</h4>
+						<div class="form-group">
+							<label for="nome">Nome</label>
+							<input type="text" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Nome do cliente">
+						</div>
+						<div class="form-group">
+						  <label for="telefone">Telefone</label>
+						  <input type="text" class="form-control" id="telefone" placeholder="Telefone">
+						</div>
+						<div class="form-group">
+						  <label for="endereco">Endere&ccedil;o</label>
+						  <input type="text" class="form-control" id="endereco" placeholder="Endere&ccedil;o">
+						</div>
+						<div class="row">
+							<div class="form-group col-md-5">
+							  	<label for="cidade">Cidade</label>
+						  		<input type="text" class="form-control" id="cidade" placeholder="Cidade">
+							</div>
+							<div class="form-group col-md-5">
+							  	<label for="bairro">Bairro</label>
+						  		<input type="text" class="form-control" id="bairro" placeholder="Bairro">
+							</div>
+							<div class="form-group col-md-2">
+							  	<label for="uf">UF</label>
+						  		<select id="uf"  class="form-control">
+								    <option th:each="post : ${posts}" th:value="${post.id}" th:text="${post.uf}"></option>
+								</select>
+							</div>
+						</div>
+					  </div>	
+					  <div class="tab">
+					  	<br/>
+						<h4 style="background-color: #f1f1f1;">Ve&iacute;culo</h4>
+					    <div class="row">
+							<div class="col">
+							  	<label for="marca">Marca</label>
+						  		<input type="text" class="form-control" id="marca" placeholder="Marca">
+							</div>
+							<div class="col">
+							  	<label for="modelo">Modelo</label>
+						  		<input type="text" class="form-control" id="modelo" placeholder="Modelo">
+							</div>
+							<div class="col">
+							  	<label for="ano">Ano</label>
+						  		<input type="text" class="form-control" id="ano" placeholder="Ano">
+							</div>
+						</div><br/>
+						<div class="row">
+							<div class="col">
+							  	<label for="placa">Placa</label>
+						  		<input type="text" class="form-control" id="placa" placeholder="Placa">
+							</div>
+							<div class="col">
+							  	<label for="km">Kilometragem</label>
+						  		<input type="text" class="form-control" id="km" placeholder="Kilometragem">
+							</div>
+							<div class="col">
+							  	<label for="combustivel">Combust&iacute;vel</label>
+						  		<input type="text" class="form-control" id="combustivel" placeholder="Combust&iacute;vel">
+							</div>
+						</div><br/>
 					  </div>
 					  <div class="tab">Contact Info:
 					    <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
@@ -141,7 +105,7 @@
 						<input class="form-control" type="text" />
 						<div class="input-group-btn">
 							<div class="btn-group" role="group">
-								<button type="button" class="btn btn-primary" onclick="swal('Oops!', 'Something went wrong on the page!', 'error');"><i class="fas fa-search"></i></button>
+								<button type="button" class="btn btn-primary" ><i class="fas fa-search"></i></button>
 							</div>	
 						</div>
 					  </div>
@@ -169,6 +133,13 @@
 			  }
 			  if (n == (x.length - 1)) {
 			    document.getElementById("nextBtn").innerHTML = "Enviar";
+			    $("#nextBtn").on("click", function() {
+			    	swal({
+		    		  title: "Good job!",
+		    		  text: "You clicked the button!",
+		    		  icon: "success",
+		    		});
+				});
 			  } else {
 			    document.getElementById("nextBtn").innerHTML = "Pr&oacute;ximo";
 			  }
